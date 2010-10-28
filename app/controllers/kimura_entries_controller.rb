@@ -3,7 +3,8 @@ class KimuraEntriesController < ApplicationController
   # GET /kimura_entries.xml
   def index
     @kimura_entries = KimuraEntry.paginate :page => params[:page], :order => 'created_at ASC'
-
+    
+    session[:back_to_index] = params[:page] || 1
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @kimura_entries }

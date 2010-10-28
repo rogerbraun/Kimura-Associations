@@ -11,7 +11,7 @@ kimura = open("db/seeds/kimura_lemmata2.txt")
 kimura.lines.each_with_index do |line, index|
 
   unless line.strip.empty?
-    if KimuraEntry.create(:reading => line.strip)
+    if KimuraEntry.create(:reading => line.strip))
       puts "Saved kimura #{index}"
     end
   end
@@ -27,8 +27,8 @@ wadoku = open("db/seeds/WaDoku RomajiAbgleich.tab").read.gsub("\r","\n")
 wadoku.lines.each_with_index do |entry, index|
 
   temp = entry.split("\t")
-  if WadokuEntry.create(:wadoku_id => temp[0],:reading => temp[1], :kanji => temp[2], :translation => temp[4])
-    puts "saved wadoku"
+  if WadokuEntry.create(:wadoku_id => temp[0],:reading => temp[1].gsub(/[·]/,""), :kanji => temp[2], :translation => temp[4])
+    puts "saved wadoku #{index}"
   else
     puts "not saved"
   end
