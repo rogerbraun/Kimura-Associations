@@ -1,0 +1,26 @@
+<%= form_for(@kimura_entry) do |f| %>
+  <% if @kimura_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@kimura_entry.errors.count, "error") %> prohibited this kimura_entry from being saved:</h2>
+
+      <ul>
+      <% @kimura_entry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :reading %><br />
+    <%= f.text_field :reading %>
+  </div>
+  <div class="field">
+    <%= f.label :wadoku_id %><br />
+    <%=collection_select(:kimura_entry, :wadoku_entry_id, @kimura_entry.wadoku_candidates,:id,:kanji) %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

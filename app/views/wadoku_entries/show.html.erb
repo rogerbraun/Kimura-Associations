@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Wadoku:</b>
+  <%= @wadoku_entry.wadoku_id %>
+</p>
+
+<p>
+  <b>Kanji:</b>
+  <%= @wadoku_entry.kanji %>
+</p>
+
+<p>
+  <b>Translation:</b>
+  <%= @wadoku_entry.translation %>
+</p>
+
+
+<%= link_to 'Edit', edit_wadoku_entry_path(@wadoku_entry) %> |
+<%= link_to 'Back', wadoku_entries_path %>

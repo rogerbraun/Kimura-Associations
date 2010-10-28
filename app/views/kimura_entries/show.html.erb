@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Reading:</b>
+  <%= @kimura_entry.reading %>
+</p>
+
+<p>
+  <b>Associated entry from Wadoku:<b>
+  <% if @kimura_entry.wadoku_entry %><br />
+    ID: <%= @kimura_entry.wadoku_entry.wadoku_id %><br />
+    Kanji : <%= @kimura_entry.wadoku_entry.kanji %><br />
+  <% else %>
+    Nothing associated
+  <% end %>
+</p>
+
+<p>
+  <b>Candidates:</b>
+  <ul>
+    <% @kimura_entry.wadoku_candidates.each do |candidate| %>
+      <li><%=candidate.kanji %></li>
+    <% end %>
+  </ul>
+</p>
+
+
+<%= link_to 'Edit', edit_kimura_entry_path(@kimura_entry) %> |
+<%= link_to 'Back', kimura_entries_path %>

@@ -1,0 +1,29 @@
+<%= form_for(@wadoku_entry) do |f| %>
+  <% if @wadoku_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@wadoku_entry.errors.count, "error") %> prohibited this wadoku_entry from being saved:</h2>
+
+      <ul>
+      <% @wadoku_entry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :wadoku_id %><br />
+    <%= f.text_field :wadoku_id %>
+  </div>
+  <div class="field">
+    <%= f.label :kanji %><br />
+    <%= f.text_field :kanji %>
+  </div>
+  <div class="field">
+    <%= f.label :translation %><br />
+    <%= f.text_field :translation %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

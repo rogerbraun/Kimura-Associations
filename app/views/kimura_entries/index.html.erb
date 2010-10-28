@@ -1,0 +1,28 @@
+<h1>Listing kimura_entries</h1>
+
+<%= will_paginate @kimura_entries %>
+<table>
+  <tr>
+    <th>Reading</th>
+    <th>Candidates</th>
+    <th>Asscociated entry</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @kimura_entries.each do |kimura_entry| %>
+  <tr>
+    <td><%= kimura_entry.reading %></td>
+    <td><%= kimura_entry.wadoku_candidates.count %></td>
+    <td><%= kimura_entry.wadoku_entry ? "Yes" : "No" %>  </td>
+    <td><%= link_to 'Show', kimura_entry %></td>
+    <td><%= link_to 'Edit', edit_kimura_entry_path(kimura_entry) %></td>
+    <td><%= link_to 'Destroy', kimura_entry, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Kimura entry', new_kimura_entry_path %>

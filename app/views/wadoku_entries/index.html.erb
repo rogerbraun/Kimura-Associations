@@ -1,0 +1,29 @@
+<h1>Listing wadoku_entries</h1>
+
+<table>
+  <tr>
+    <th>Wadoku</th>
+    <th>Reading</th>
+    <th>Kanji</th>
+    <th>Translation</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @wadoku_entries.each do |wadoku_entry| %>
+  <tr>
+    <td><%= wadoku_entry.wadoku_id %></td>
+    <td><%= wadoku_entry.reading%></td>
+    <td><%= wadoku_entry.kanji %></td>
+    <td><%= wadoku_entry.translation %></td>
+    <td><%= link_to 'Show', wadoku_entry %></td>
+    <td><%= link_to 'Edit', edit_wadoku_entry_path(wadoku_entry) %></td>
+    <td><%= link_to 'Destroy', wadoku_entry, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Wadoku entry', new_wadoku_entry_path %>

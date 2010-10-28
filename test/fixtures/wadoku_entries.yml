@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  wadoku_id: 1
+  kanji: MyString
+  translation: MyString
+
+two:
+  wadoku_id: 1
+  kanji: MyString
+  translation: MyString
