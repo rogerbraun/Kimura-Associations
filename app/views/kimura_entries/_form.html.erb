@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :wadoku_id %><br />
-    <%=collection_select(:kimura_entry, :wadoku_entry_id, @kimura_entry.wadoku_candidates,:id,:kanji_and_translation) %>
+    <%=collection_select(:kimura_entry, :wadoku_entry_id, @kimura_entry.wadoku_candidates,:id,:kanji) %>
   </div>
   
   <div class="actions">
