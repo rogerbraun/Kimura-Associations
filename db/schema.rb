@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101028085924) do
+ActiveRecord::Schema.define(:version => 20101030153418) do
 
   create_table "kimura_entries", :force => true do |t|
     t.string   "reading"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(:version => 20101028085924) do
     t.datetime "updated_at"
     t.integer  "wadoku_entry_id"
   end
+
+  add_index "kimura_entries", ["reading"], :name => "index_kimura_entries_on_reading"
 
   create_table "wadoku_entries", :force => true do |t|
     t.integer  "wadoku_id"
@@ -27,5 +29,7 @@ ActiveRecord::Schema.define(:version => 20101028085924) do
     t.datetime "updated_at"
     t.string   "reading"
   end
+
+  add_index "wadoku_entries", ["reading"], :name => "index_wadoku_entries_on_reading"
 
 end
