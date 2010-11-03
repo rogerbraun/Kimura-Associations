@@ -2,8 +2,8 @@ class WadokuEntriesController < ApplicationController
   # GET /wadoku_entries
   # GET /wadoku_entries.xml
   def index
-    @wadoku_entries = WadokuEntry.all
 
+    @wadoku_entries = WadokuEntry.paginate :page => params[:page], :order => 'created_at ASC'
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @wadoku_entries }
