@@ -26,4 +26,5 @@
 
 
 <%= link_to 'Edit', edit_kimura_entry_path(@kimura_entry) %> |
-<%= link_to 'Back', kimura_entries_path(:page => session[:back_to_index] || 1) %>
+<%= link_to 'Back', kimura_entries_path(:page => session[:back_to_index] || 1) %> | 
+<%= link_to "Next", edit_kimura_entry_path(KimuraEntry.find(@kimura_entry.id + 1)) %>

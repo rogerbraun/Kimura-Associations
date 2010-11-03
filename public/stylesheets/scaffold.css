@@ -54,3 +54,36 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
+.simple_form input.radio {
+  float:left;
+  clear:left;
+  margin-left: 102px;
+}
+
+.simple_form label.collection_radio {
+  margin-left: 102px;
+  margin-bottom: 20px;
+  float:left;
+  clear:left;
+  width:inherit;
+}
+
+
+.simple_form label {
+  float:left;
+  width: 102px;
+}
+
+.simple_form input[type='submit'] {
+  margin: 20px;
+  float:left;
+  clear:left;
+}
+
+
+form {
+float:left;
+width:100%;
+clear:both;
+}

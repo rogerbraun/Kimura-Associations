@@ -1,4 +1,4 @@
-<%= form_for(@kimura_entry) do |f| %>
+<%= simple_form_for(@kimura_entry) do |f| %>
   <% if @kimura_entry.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@kimura_entry.errors.count, "error") %> prohibited this kimura_entry from being saved:</h2>
@@ -12,12 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :reading %><br />
-    <%= f.text_field :reading %>
+    <%= f.input :reading %>
   </div>
   <div class="field">
-    <%= f.label :wadoku_id %><br />
-    <%=collection_select(:kimura_entry, :wadoku_entry_id, @kimura_entry.wadoku_candidates,:id,:kanji) %>
+    <%= f.association :wadoku_entry, :collection => @kimura_entry.wadoku_candidates, :label_method =>:kanji_and_translation, :as => :radio %>
   </div>
   
   <div class="actions">
