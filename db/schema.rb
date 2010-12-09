@@ -10,13 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101030153418) do
+ActiveRecord::Schema.define(:version => 20101209111951) do
 
   create_table "kimura_entries", :force => true do |t|
     t.string   "reading"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "wadoku_entry_id"
+    t.text     "comment"
+    t.text     "kanji_comment"
   end
 
   add_index "kimura_entries", ["reading"], :name => "index_kimura_entries_on_reading"

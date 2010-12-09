@@ -15,9 +15,17 @@
     <%= f.input :reading %>
     <p>Nummer: <%= @kimura_entry.number %></p>
   </div>
+  <div class="field"> 
+    <%= f.input :comment %>
+  </div>
+
+  <div class="field"> 
+    <%= f.input :kanji_comment %>
+  </div>
   <div class="field">
     <%= f.association :wadoku_entry, :collection => @kimura_entry.wadoku_candidates, :label_method =>:kanji_and_translation, :as => :radio %>
   </div>
+
   
   <div class="actions">
     <%= f.submit %>
