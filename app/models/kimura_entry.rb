@@ -5,16 +5,14 @@ class KimuraEntry < ActiveRecord::Base
   end
 
   def reading_with_number
+    reading + " " + number
+  end
+
+  def number
     homonyms = KimuraEntry.where(:reading => reading)
     first = homonyms.first
   
-    if homonyms.count == 1 then
-      reading
-    else
-      reading + " #{self.id + 1 - first.id}" 
-      
-    end 
-
+    "#{self.id + 1 - first.id}" 
   end
 
   belongs_to :wadoku_entry

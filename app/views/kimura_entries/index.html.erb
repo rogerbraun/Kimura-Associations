@@ -1,26 +1,46 @@
-<h1>Kimura</h1>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", kimura_entries_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_kimura_entry_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> KimuraEntries</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+            <th class="first">
+            <%= t("activerecord.attributes.kimura_entry.reading", :default => t("activerecord.labels.reading", :default => "Reading")) %>
+          </th>
+          <th>Nummer</th>
+          <th>Kandidaten</th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @kimura_entries.each do |kimura_entry| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+                    <td>
+            <%= link_to kimura_entry.reading, kimura_entry_path(kimura_entry) %>
+          </td>
+          <td><%= kimura_entry.number %></td>
+          <td><%= kimura_entry.wadoku_candidates.size %></td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", kimura_entry_path(kimura_entry) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_kimura_entry_path(kimura_entry) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", kimura_entry_path(kimura_entry), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+        <%= will_paginate @kimura_entries  %>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= will_paginate @kimura_entries %>
-<table>
-  <tr>
-    <th>Reading</th>
-    <th>Candidates</th>
-    <th>Asscociated entry</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @kimura_entries.each do |kimura_entry| %>
-  <tr>
-    <td><%= kimura_entry.reading_with_number %></td>
-    <td><%= kimura_entry.wadoku_candidates.count %></td>
-    <td><%= kimura_entry.wadoku_entry ? kimura_entry.wadoku_entry.kanji : "No" %>  </td>
-    <td><%= link_to 'Edit', edit_kimura_entry_path(kimura_entry) %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Kimura entry', new_kimura_entry_path %>
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

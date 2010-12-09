@@ -33,3 +33,6 @@ gem "simple_form"
 # group :development, :test do
 #   gem 'webrat'
 # end
+group :development, :test do
+  gem 'web-app-theme', '>= 0.6.2'
+end

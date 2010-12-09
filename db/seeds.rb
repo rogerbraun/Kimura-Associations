@@ -11,7 +11,7 @@ kimura = open("db/seeds/kimura_lemmata2.txt")
 kimura.lines.each_with_index do |line, index|
 
   unless line.strip.empty?
-    if KimuraEntry.create(:reading => line.strip))
+    if KimuraEntry.create(:reading => line.strip)
       puts "Saved kimura #{index}"
     end
   end
