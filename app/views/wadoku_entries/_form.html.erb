@@ -1,4 +1,4 @@
-<%= form_for(@wadoku_entry) do |f| %>
+<%= simple_form_for(@wadoku_entry) do |f| %>
   <% if @wadoku_entry.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@wadoku_entry.errors.count, "error") %> prohibited this wadoku_entry from being saved:</h2>
@@ -12,16 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :wadoku_id %><br />
-    <%= f.text_field :wadoku_id %>
+    <%= f.input :wadoku_id %>
   </div>
   <div class="field">
-    <%= f.label :kanji %><br />
-    <%= f.text_field :kanji %>
+    <%= f.input :kanji %>
   </div>
   <div class="field">
-    <%= f.label :translation %><br />
-    <%= f.text_field :translation %>
+    <%= f.input :translation, :as => :text %>
   </div>
   <div class="actions">
     <%= f.submit %>
