@@ -15,6 +15,7 @@
           </th>
           <th>Nummer</th>
           <th>Kandidaten</th>
+          <th>Verknüpft mit</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @kimura_entries.each do |kimura_entry| -%>
@@ -24,6 +25,7 @@
           </td>
           <td><%= kimura_entry.number %></td>
           <td><%= kimura_entry.wadoku_candidates.size %></td>
+          <td><%= kimura_entry.wadoku_entry ? kimura_entry.wadoku_entry.kanji : "Nichts" %></td>
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", kimura_entry_path(kimura_entry) %> |
             <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_kimura_entry_path(kimura_entry) %> |

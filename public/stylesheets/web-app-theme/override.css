@@ -1,1 +1,21 @@
 /* Override here any style defined by web-app-theme */
+form input.check_boxes, input.radio {
+  clear: both;
+  float: left;
+  padding: 0px;
+  margin: 0px;
+}
+form label {
+  display: block;
+  width: 310px;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 0px 0px 12px 0px;
+}
+
+form label.collection_check_boxes, label.collection_radio{
+  clear: none;
+  margin: 0px 0px 0px 25px;
+  padding: 0px 0px 15px 0px;
+}
+
