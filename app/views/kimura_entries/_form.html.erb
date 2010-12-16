@@ -3,8 +3,12 @@
     <%= f.label :reading, t("activerecord.attributes.kimura_entry.reading", :default => "Reading"), :class => :label %>
     <%= f.text_field :reading, :class => 'text_field' %>
     <p>Eintrag-Nummer: <%=@kimura_entry.number %></p>
+    <p>Generiertes Vergleichsfeld: <%=@kimura_entry.compare %></p>
     <span class="description">Die Lesung in Romaji</span>
   </div>
+
+
+  
 
   <% if @kimura_entry.wadoku_candidates.size > 0%>
  
