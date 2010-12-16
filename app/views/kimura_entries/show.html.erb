@@ -2,7 +2,6 @@
   <div class="secondary-navigation">
     <ul class="wat-cf">
       <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", kimura_entries_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_kimura_entry_path %></li>
       <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", kimura_entry_path %></li>
     </ul>
   </div>          
@@ -14,13 +13,14 @@
           <%= @kimura_entry.reading %>
         </p>
 
-        <p>
-          <b><%= t("activerecord.attributes.kimura_entry.wadoku_entry_id", :default => t("activerecord.labels.wadoku_entry_id", :default => "Wadoku entry")) %>:</b>
-          <%= @kimura_entry.wadoku_entry_id %>
-        </p>
+        <% if @kimura_entry.wadoku_entry %>
+          <p>
+            <b><%= t("activerecord.attributes.kimura_entry.wadoku_entry_id", :default => t("activerecord.labels.wadoku_entry_id", :default => "Wadoku entry")) %>:</b>
+            <%= @kimura_entry.wadoku_entry.kanji_and_translation %>
+          </p>
+        <% end %>
       <div class="wat-cf">
         <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_kimura_entry_path(@kimura_entry), :class => "button" %> 
-        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), kimura_entry_path(@kimura_entry), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
       </div>      
     </div>
   </div>

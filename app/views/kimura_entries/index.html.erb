@@ -2,7 +2,6 @@
   <div class="secondary-navigation">
     <ul class="wat-cf">
       <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", kimura_entries_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_kimura_entry_path %></li>
     </ul>
   </div>          
   <div class="content">          
@@ -28,8 +27,7 @@
           <td><%= kimura_entry.wadoku_entry ? kimura_entry.wadoku_entry.kanji : "Nichts" %></td>
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Show")}", kimura_entry_path(kimura_entry) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_kimura_entry_path(kimura_entry) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", kimura_entry_path(kimura_entry), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_kimura_entry_path(kimura_entry) %>
           </td>
         </tr>          
         <% end -%>

@@ -12,13 +12,13 @@ kimura.lines.each_with_index do |line, index|
 
   unless line.strip.empty?
     if KimuraEntry.create(:reading => line.strip)
-      puts "Saved kimura #{index}"
+      puts "." if KimuraEntry.last.id % 10 == 0
     end
   end
 
-  if Rails.env.development? then
-    break if index > 1000
-  end
+ # if Rails.env.development? then
+ #   break if index > 1000
+ # end
 
 end
 
@@ -32,9 +32,9 @@ wadoku.lines.each_with_index do |entry, index|
   else
     puts "not saved"
   end
-  if Rails.env.development? then
-    break if index > 1000
-  end
+  #if Rails.env.development? then
+  #  break if index > 1000
+  #end
 
 end
 
