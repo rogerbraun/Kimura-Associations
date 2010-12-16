@@ -35,6 +35,7 @@ class KimuraEntriesController < ApplicationController
 
   # GET /kimura_entries/1/edit
   def edit
+    session[:back_to] = request.env["HTTP_REFERER"]
     @kimura_entry = KimuraEntry.find(params[:id])
   end
 
@@ -61,7 +62,7 @@ class KimuraEntriesController < ApplicationController
 
     respond_to do |format|
       if @kimura_entry.update_attributes(params[:kimura_entry])
-        format.html { redirect_to(@kimura_entry, :notice => 'Kimura entry was successfully updated.') }
+        format.html { redirect_to(session[:back_to] || @kimura_entry, :notice => 'Kimura entry was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
