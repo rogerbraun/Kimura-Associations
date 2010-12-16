@@ -19,9 +19,7 @@ class KimuraEntry < ActiveRecord::Base
   belongs_to :wadoku_entry
 
   private
-  
-  def make_comparable_reading
-    replace = { "â" => "ā",
+    REPLACE = { "â" => "ā",
                 "î" => "ī",
                 "û" => "ū",
                 "ê" => "ē",
@@ -42,8 +40,10 @@ class KimuraEntry < ActiveRecord::Base
                 "mb" => "nb",
                 "mp" => "np"
 }
+  
+  def make_comparable_reading
     temp = reading.dup
-    replace.each do |k,v|
+    REPLACE.each do |k,v|
       temp.gsub!(k,v)
     end
     temp
