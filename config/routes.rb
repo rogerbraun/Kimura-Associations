@@ -1,4 +1,6 @@
 Lexikographie::Application.routes.draw do
+  devise_for :users
+
   resources :kimura_entries
 
   resources :wadoku_entries
