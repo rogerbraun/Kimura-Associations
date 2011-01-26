@@ -2,7 +2,7 @@ class KimuraEntry < ActiveRecord::Base
   before_save :update_comparable_reading
 
   def wadoku_candidates
-    WadokuEntry.where(:reading => compare) || []
+    WadokuEntry.where(:compare=> compare) || []
   end
 
   def reading_with_number
