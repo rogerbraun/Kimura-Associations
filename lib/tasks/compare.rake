@@ -3,5 +3,8 @@ namespace :db do
     KimuraEntry.all.each do |entry|
       entry.save
     end
+    WadokuEntry.all.each do |entry|
+      entry.save
+    end
   end
 end

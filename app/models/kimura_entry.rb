@@ -29,24 +29,25 @@ class KimuraEntry < ActiveRecord::Base
                 "ü" => "ū",
                 "ë" => "ē",
                 "ö" => "ō",
-                "·" => "-",
-                "." => "-",
                 "n-a" => "n’a",
                 "n-e" => "n’e",
                 "n-i" => "n’i",
                 "n-o" => "n’o",
                 "n-u" => "n’u",
                 "n-y" => "n’y",
+                "-" => "·",
+                #"." => "-",
                 "mb" => "nb",
                 "mp" => "np"
-}
+    }
   
   def make_comparable_reading
     temp = reading.dup
     REPLACE.each do |k,v|
       temp.gsub!(k,v)
     end
-    temp
+    temp.downcase!
+    temp.gsub(/[^a-zA-Zīūēōā]/,"")
   end
 
   def update_comparable_reading

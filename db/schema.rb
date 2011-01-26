@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101210153552) do
+ActiveRecord::Schema.define(:version => 20110125145441) do
 
   create_table "kimura_entries", :force => true do |t|
     t.string   "reading"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20101210153552) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "reading"
+    t.string   "compare"
   end
 
   add_index "wadoku_entries", ["reading"], :name => "index_wadoku_entries_on_reading"
