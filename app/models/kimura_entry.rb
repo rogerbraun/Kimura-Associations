@@ -17,6 +17,7 @@ class KimuraEntry < ActiveRecord::Base
   
 
   belongs_to :wadoku_entry
+  belongs_to :user
 
   private
     REPLACE = { "â" => "ā",
