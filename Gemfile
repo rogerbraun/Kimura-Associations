@@ -36,5 +36,6 @@ gem "simple_form"
 #   gem 'webrat'
 # end
 group :development, :test do
+  gem "progressbar"
   gem 'web-app-theme', '>= 0.6.2'
 end
