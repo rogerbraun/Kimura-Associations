@@ -9,12 +9,20 @@
 <body>
   <div id="container">
     <div id="header">
-      <h1><a href="/">Kimura + Wadoku</a></h1>
+      <h1><%= link_to "Kimura + Wadoku", root_url %></h1>
       <div id="user-navigation">
         <ul class="wat-cf">
-          <li><a href="#"><%= t("web-app-theme.profile", :default => "Profile") %></a></li>
-          <li><a href="#"><%= t("web-app-theme.settings", :default => "Settings") %></a></li>
           <!-- <li><a href="/logout" class="logout"><%= t("web-app-theme.logout", :default => "Logout") %></a></li> -->
+          <% if user_signed_in? %>
+            <li>Hallo, <%= current_user.email %>!</li>
+            <li>
+              <%= link_to "Abmelden", destroy_user_session_path %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Anmelden", new_user_session_path %>
+            </li>
+          <% end %>
         </ul>
       </div>
       <div id="main-navigation">

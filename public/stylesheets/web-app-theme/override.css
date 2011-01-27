@@ -19,3 +19,9 @@ form label.collection_check_boxes, label.collection_radio{
   padding: 0px 0px 15px 0px;
 }
 
+.wat-cf li {
+  margin-left: 5px;
+  background: #E5E5E5;
+ -moz-border-radius: 5px;
+border-radius: 5px;
+}

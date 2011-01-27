@@ -2,7 +2,11 @@ class KimuraEntriesController < ApplicationController
   # GET /kimura_entries
   # GET /kimura_entries.xml
   def index
-    @kimura_entries = KimuraEntry.paginate :page => params[:page], :order => 'created_at ASC'
+    if user_signed_in? then
+      @kimura_entries = current_user.kimura_entries.paginate :page => params[:page], :order => 'created_at ASC'
+    else
+      @kimura_entries = KimuraEntry.paginate :page => params[:page], :order => 'created_at ASC'
+    end
     
     session[:back_to_index] = params[:page] || 1
     respond_to do |format|
