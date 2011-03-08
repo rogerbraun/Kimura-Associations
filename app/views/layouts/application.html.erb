@@ -15,6 +15,7 @@
           <!-- <li><a href="/logout" class="logout"><%= t("web-app-theme.logout", :default => "Logout") %></a></li> -->
           <% if user_signed_in? %>
             <li>Hallo, <%= current_user.email %>!</li>
+            <li>Zeichenstand: <%= current_user.wordcount%> / 10000.</li>
             <li>
               <%= link_to "Abmelden", destroy_user_session_path %>
             </li>

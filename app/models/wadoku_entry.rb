@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 class WadokuEntry < ActiveRecord::Base
   before_save :update_comparable_reading
   def kanji_and_translation

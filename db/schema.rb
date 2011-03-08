@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110127090200) do
+ActiveRecord::Schema.define(:version => 20110308114342) do
 
   create_table "kimura_entries", :force => true do |t|
     t.string   "reading"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20110127090200) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "wordcount"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

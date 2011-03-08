@@ -1,5 +1,7 @@
+#encoding: utf-8
 class KimuraEntry < ActiveRecord::Base
   before_save :update_comparable_reading
+  before_save :update_wordcount
 
   def wadoku_candidates
     WadokuEntry.where(:compare=> compare) || []
@@ -53,6 +55,12 @@ class KimuraEntry < ActiveRecord::Base
 
   def update_comparable_reading
     self.compare = make_comparable_reading
+  end
+
+  def update_wordcount
+    user = self.user
+    user.wordcount += self.comment.size - (self.comment_was ? self.comment_was.size : 0) 
+    user.save  
   end
 
 end
