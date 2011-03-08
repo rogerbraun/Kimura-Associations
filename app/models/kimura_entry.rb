@@ -59,7 +59,7 @@ class KimuraEntry < ActiveRecord::Base
 
   def update_wordcount
     user = self.user
-    user.wordcount += self.comment.size - (self.comment_was ? self.comment_was.size : 0) 
+    user.wordcount += self.comment.chars.to_a.size - (self.comment_was ? self.comment_was.chars.to_a.size : 0) 
     user.save  
   end
 
